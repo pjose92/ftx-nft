@@ -9,9 +9,10 @@ export const TableContent = () => {
   const dispatch = useDispatch();
   const [nftCollections, setNftCollections] = useState([]);
   const [selectedNetwork, setSelectedNetwork] = useState("all");
-  const [startNum] = useState("0");
-  const [endNum] = useState("10");
+  const [startNum, setStartNum] = useState("0");
+  const [endNum, setEndNum] = useState("10");
   const [isLoading, setisLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState([])
 
   // https://github.com/Rob--W/cors-anywhere/
   // https://cors-anywhere.herokuapp.com/corsdemo
@@ -83,6 +84,29 @@ export const TableContent = () => {
     },
   ];
 
+
+  const decrease = (start, end) => {
+    if (Number(start) === 0) {
+      return {
+        start: "0",
+        end: "10",
+      };
+    } else {  
+      return {
+        start: (Number(start) - 10).toString(),
+        end: (Number(end) - 10).toString(),
+      };
+    }
+  };
+    
+  const increase = (start, end) => {  
+    return {
+      start: (Number(start) + 10).toString(),
+      end: (Number(end) + 10).toString(),
+    };
+  };
+
+
   return (
     <>
       <ButtonContainer>
@@ -108,6 +132,37 @@ export const TableContent = () => {
           pagination={false}
         />
       )}
+      
+      <div>
+        <TypeButton
+        onClick={() => {
+          const previous = decrease(startNum, endNum);
+          setStartNum(previous.start);
+          setEndNum(previous.end);
+          setCurrentPage(
+            currentPage.map(function (i) {
+              return i - 1;
+            })
+          );
+        }}
+        >
+          previous
+        </TypeButton>
+        <TypeButton
+        onClick={() => {
+          const next = increase(startNum, endNum);
+          setStartNum(next.start);
+          setEndNum(next.end);
+          setCurrentPage(
+            currentPage.map(function (i) {
+              return i + 1;
+            })
+          );
+        }}
+        >
+          next
+        </TypeButton>
+      </div>
     </>
   );
 };
