@@ -141,6 +141,9 @@ export const ContentText = styled.p`
 
 export const NFTCollection = styled.div`
     position: relative;
-    margin-top: 180px;
+    margin-top: 300px;
     height: 780px;
+    @media(max-width: 800px) {
+        margin-top: 600px;
+    }
 `;
