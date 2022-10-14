@@ -44,9 +44,9 @@ export const Gallery = () => {
       <Layout>
         <Content>
           <CardWrapper>
-            {sliceIntoChunks(collectionInfo, 3).map((elm) => (
+            {sliceIntoChunks(collectionInfo, 3).map((data) => (
               <Row gutter={16}>
-                {elm.map((nft) => (
+                {data.map((nft) => (
                   <Col span={8}>
                     <NftCard key={nft.id} data={{ nft }}></NftCard>
                   </Col>

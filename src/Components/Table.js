@@ -23,14 +23,14 @@ export const TableContent = () => {
         `https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/collections_page?collectionType=${network}&startInclusive=${start}&endExclusive=${end}`
       )
       .then((res) => {
-        res.data.result.collections.map((elm, index) => {
+        res.data.result.collections.map((data, index) => {
           nftArr.push({
             key: index,
-            name: elm.collectionDict.name,
-            volume: elm.volume.toFixed(2),
-            total: elm.total,
-            network: elm.issuer["mintSource"].toUpperCase(),
-            allData: elm,
+            name: data.collectionDict.name,
+            volume: data.volume.toFixed(2),
+            total: data.total,
+            network: data.issuer["mintSource"].toUpperCase(),
+            allData: data,
           });
         });
         setNftCollections(nftArr);

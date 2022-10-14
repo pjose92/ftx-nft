@@ -32,7 +32,7 @@ const Home = () => {
               <Link to="/explore">
                 <ExploreButton>Explore NFTs</ExploreButton>
               </Link>
-              <Link>
+              <Link href="https://ftx.us/" target="_blank">
                 <CreateButton>
                   Learn More
                 </CreateButton>

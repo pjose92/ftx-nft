@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container, CardCotainer, NFTCard, NFTImage, NFTContainer, NFTDesc} from "./NFTCollection.styled.js";
 import axios from "axios";
+
 export const NFTCollections = (props) => {
   const [cards, setCards] = useState([]);
   const getIndividual = () => {
@@ -25,20 +26,20 @@ export const NFTCollections = (props) => {
     <Container>
       {cards.length === 0
         ? ""
-        : cards.map((elm, index) => (
+        : cards.map((data, index) => (
           <CardCotainer>
             <Link
                 onClick={() => {}}
-                to={`/gallery/${elm.collectionDict.name}`}
+                to={`/gallery/${data.collectionDict.name}`}
               >
             <NFTCard>
                 <NFTImage
-                  src={elm.first_nft.imageUrl}
+                  src={data.first_nft.imageUrl}
                   alt=""
                 />
               <NFTContainer>
                 <NFTDesc>
-                  {elm.collectionDict.name}
+                  {data.collectionDict.name}
                 </NFTDesc>
               </NFTContainer>
             </NFTCard>
