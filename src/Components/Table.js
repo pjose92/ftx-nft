@@ -84,7 +84,7 @@ export const TableContent = () => {
 
   return (
     <>
-      <ButtonContainer className="sortButtons">
+      <ButtonContainer>
         <TypeButton disabled={isLoading} onClick={() => setSelectedNetwork("all")}>
           All
         </TypeButton>
