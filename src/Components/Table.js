@@ -14,6 +14,7 @@ export const TableContent = () => {
   const [isLoading, setisLoading] = useState(true);
 
   // https://github.com/Rob--W/cors-anywhere/
+  // https://cors-anywhere.herokuapp.com/corsdemo
   // API error. Cors link helps with that. 
   const getNftData = (network, start, end) => {
     setisLoading(true);
